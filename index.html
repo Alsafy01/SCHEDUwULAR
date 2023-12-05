@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>SCHEDUwULAR</title>
+</head>
+<body>
+
+    <header class="header">
+        
+        <div class="menu-icon" onclick="toggleDrawer()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+		<div class="site-name">SCHEDU<span style="color:#CF9FFF;">w</span>ULAR</div>
+    </header>
+	<div class="container">
+    <div class="main-content">
+        <div class="container">
+            <div class="queue-controls">
+                <label for="weightInput">Enter Weight:</label>
+                <input type="text" id="weightInput" placeholder="e.g., 10">
+                <button onclick="addCube()">Add Cube</button>
+            </div>
+
+            <div class="queues">
+                <div id="q1" class="queue"></div>
+                <div id="q2" class="queue"></div>
+                <div id="q3" class="queue"></div>
+            </div>
+        </div>
+    </div>
+        
+		</div>
+		
+        <div class="terminal">
+            <div id="terminalContainer">
+                <pre id="logTerminal"></pre>
+            </div>
+            <button id="downloadButton">Download Logs</button>
+        </div>
+		
+    
+	    <div class="drawer" id="myDrawer">
+        <div class="drawer-content">
+            <div class="tools-container">
+                <div class="tools">
+                    <h2>Tools Menu</h2>
+                    <div class="queue-sizes input-container">
+                        <label for="q1Size">Queue 1 </label>
+                        <div style="flex-direction: rows;"class="input-container">
+                            <label> Size: </label>
+                            <input type="number" id="q1Size" value="10">
+                            <div class="info-icon" onclick="showInfo('infoQ1Size')">ℹ️</div>
+                            <div id="infoQ1Size" class="info-dialog">
+                                <div class="arrow arrow-up"></div>
+                                The Size input field defines the maximum size of processes each queue can hold at a time  
+                            </div>
+                        </div>
+                        <div style="flex-direction: rows;" class="input-container">
+							<label> Mode: </label>
+							<select id="queueSelector1">
+								<option value="FCFS">First Come First served (FCFS) </option>
+								<option value="RR">Round Robin (RR)</option>
+								<option value="SJF">Shortest Job First (SJF) </option>
+							</select>
+							<div class="info-icon" onclick="showInfo('infoMode1')">ℹ️</div>
+							<div id="infoMode1" class="info-dialog">
+								<div class="arrow arrow-up"></div>
+								The Mode input field defines the Scheduling algorithms used during CPU time on this Queue.
+							</div>
+						</div>
+                        <div style="flex-direction: rows;" class="input-container">
+						<label> QWPC: </label>
+						<input type="number" id="QWPC1" value="10" style="width: 40px">
+						<div class="info-icon" onclick="showInfo('infoQWPC1')">ℹ️</div>
+						<div id="infoQWPC1" class="info-dialog">
+							<div class="arrow arrow-up"></div>
+							QWPC is the Quantua Work Per Cycle defines the Cpu time slice for this Queue compered to the other queues.
+						</div>
+					</div>
+                    </div>
+					
+                    <div class="queue-sizes input-container">
+                        <label for="q2Size">Queue 2 </label>
+                        <div style="flex-direction: rows;">
+                            <label> Size: </label>
+                            <input type="number" id="q2Size" value="20">
+                        </div>
+                        <div style="flex-direction: rows;">
+                            <label> Mode: </label>
+                            <select id="queueSelector2">
+								<option value="RR">Round Robin (RR)</option>
+                                <option value="FCFS">First Come First served (FCFS) </option>
+								<option value="SJF">Shortest Job First (SJF) </option>
+                            </select>
+                        </div>
+						<div style="flex-direction: rows;" class="input-container">
+						<label> QWPC: </label>
+						<input type="number" id="QWPC2" value="10" style="width: 40px">
+					</div>
+                    </div>
+                    <div class="queue-sizes input-container">
+                        <label for="q3Size">Queue 3 Size: </label>
+                        <div style="flex-direction: rows;">
+                            <label> Size: </label>
+                            <input type="number" id="q3Size" value="30">
+                        </div>
+                        <div style="flex-direction: rows;">
+                            <label> Mode: </label>
+                            <select id="queueSelector3" >
+								<option value="RR">Round Robin (RR)</option>
+                                <option value="FCFS">First Come First served (FCFS) </option>
+								<option value="SJF">Shortest Job First (SJF) </option>
+                            </select>
+                        </div>
+						<label> QWPC: </label>
+						<input type="number" id="QWPC3" value="10" style="width: 40px">
+                        
+                    </div>
+
+                    <div class="decreasing-options input-container"style="flex-direction: rows;">
+                        <label for="qValue">Q Value:</label>
+                        <input type="text" id="qValue" value="1">
+                        <div class="info-icon" onclick="showInfo('infoQValue')">ℹ️</div>
+                        <div id="infoQValue" class="info-dialog">
+                            <div class="arrow arrow-up"></div>
+                            Q Value defines as the Quantum value acts like the CPU frequancy.
+                        </div>
+                    </div>
+					<div class="decreasing-options input-container"style="flex-direction: rows;">
+					<label for="totalProcesses">Total Processes:</label>
+					<input type="text" id="totalProcesses" value="10">
+					<div class="info-icon" onclick="showInfo('infoTotalProcesses')">ℹ️</div>
+					<div id="infoTotalProcesses" class="info-dialog">
+						<div class="arrow arrow-up"></div>
+						The Total number of randomly generated prcesses per every run inserted one per cycle.
+					</div>
+</div>
+
+                    <div style="flex-direction: rows;" class="input-container">
+						<label for="showQStep">Show Q Step:</label>
+						<input type="checkbox" id="showQStep">
+						<div class="info-icon" onclick="showInfo('infoShowQStep')">ℹ️</div>
+						<div id="infoShowQStep" class="info-dialog">
+							<div class="arrow arrow-up"></div>
+							Select it if you want to see each decreasing step for each Process one by one.
+						</div>
+					</div>
+
+
+                    <button id="runButton">Run</button>
+                    <button id="stopButton" disabled>Stop</button>
+                    <div class="input-container">
+    <label for="speedRange">Speed Range:</label>
+    <input type="range" id="speedRange" min="1" max="10" value="1">
+    <div class="info-icon" onclick="showInfo('infoSpeedRange')">ℹ️</div>
+    <div id="infoSpeedRange" class="info-dialog">
+        <div class="arrow arrow-up"></div>
+        Speed Range defines the clock speed for the system (Hint: may results in some clutches).
+    </div>
+</div>
+
+                    <div id="cycleCounter">Cycles: 0</div>
+                </div>
+            </div>
+
+            <div class="tools-container2">
+                <div class="tools">
+                    <div class="decreasing-controls">
+                        <h2>Extra Settings</h2>
+                        <div class="weight-controls input-container">
+                            <label for="processId">Process ID:</label>
+                            <input type="text" id="processId">
+                            <div class="info-icon" onclick="showInfo('infoProcessId')">ℹ️</div>
+                            <div id="infoProcessId" class="info-dialog">
+                                <div class="arrow arrow-up"></div>
+                                Explanation for Process ID.
+                            </div>
+                            <label for="givenWeight">Given Weight:</label>
+                            <input type="text" id="givenWeight">
+                            <div class="info-icon" onclick="showInfo('infoGivenWeight')">ℹ️</div>
+                            <div id="infoGivenWeight" class="info-dialog">
+                                <div class="arrow arrow-up"></div>
+                                Extra Settings for feature extend and for now the user can decrease any Process Weight and dark mode :).
+                            </div>
+                            <button onclick="decreaseWeightFromToolMenu()">Decrease Weight</button>
+                        </div>
+                        
+                        <div class="dark-mode-toggle">
+                            <label class="switch" for="darkModeToggle">
+                                <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+                                <div class="slider round"></div>
+                            </label>
+                            <div class="switch-word">
+                                <span>Dark Mode</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div style="height: 1100px;"></div>
+	</div>
+	</div>
+	
+</body>
+<script src="script.js"  defer></script>
+</html>

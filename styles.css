@@ -1,0 +1,355 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f8f9fa; /* Lighter background color */
+    font-family: 'Arial', sans-serif; /* Choose a clean font */
+}
+/* ... (your existing styles) ... */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    z-index: 3; /* Ensure header is above other elements */
+}
+
+.site-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: auto; /* Pushes the site name to the center by taking all available space */
+}
+
+.menu-icon {
+	
+    cursor: pointer;
+    flex-direction: column;
+    margin-right: auto; /* Pushes the menu icon to the left by taking all available space */
+}
+
+.menu-icon .line {
+	
+    width: 30px;
+    height: 3px;
+    background-color: #CF9FFF;
+    margin: 5px 0;
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Start off-screen to the left */
+    height: 100%;
+    width: 300px;
+    background-color: #333;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease-in-out;
+    z-index: 2;
+    overflow-y: auto; /* Add vertical scroll */
+}
+
+.drawer-content {
+	position: relative;
+	 display: flex;
+    flex-direction: column;
+    color: #0; /* Change text color to white for better visibility */
+}
+
+.container {
+    text-align: center;
+}
+
+.queue {
+    height: 80px;
+    border: 2px solid #333;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cube {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-right: 1px solid #ccc;
+}
+
+.upper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff; /* Blue background for process ID */
+}
+
+.lower {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #555;
+    border-top: 1px solid #ccc;
+}
+
+.cube.highlighted {
+    background-color: yellow; /* Change the background color to yellow when highlighted */
+    box-shadow: 0 0 5px rgba(255, 255, 0, 0.7); /* Add a box-shadow effect for highlighting */
+}
+.tools-container {
+    position: absolute;
+    left: 20px;
+    top: 30px; /* Adjusted top value to include the height of the header */
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: 220px;
+}
+
+.tools-container2 {
+    position: absolute;
+    left: 20px;
+    top: 800px; /* Adjust the top value to create space between the two menus */
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: 220px;
+}
+
+
+.tools {
+    display: flex;
+    flex-direction: column;
+}
+
+.tools label,
+.tools button,
+.tools input,
+.tools h2 {
+    margin: 5px 0;
+}
+
+.tools button {
+    cursor: pointer;
+}
+
+.tools #cycleCounter {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+.terminal {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 800px; /* Limit the terminal width */
+    height: 150px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #333;
+    font-family: 'Courier New', monospace;
+    border-radius: 8px;
+}
+#logTerminal {
+    font-family: 'Courier New', monospace;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    overflow-y: scroll;	
+	height: 150px; /* Set the fixed height */
+	position: fixed;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: white;
+}
+.terminal pre {
+  margin: 0;
+  padding: 0;
+}
+/* ... (your existing styles) ... */
+.switch-word{
+	color: #333;
+}
+/* Add this to your styles.css for dark mode */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+.dark-mode .switch-word {
+	color: white;
+}
+/* Add this to your styles.css for dark mode */
+.dark-mode .queue {
+    background-color: #333;
+    border-color: #555;
+}
+
+/* Add this to your styles.css for dark mode */
+.dark-mode .tools-container {
+    background-color: #222;
+    color: #ffffff;
+}
+/* Add this to your styles.css for dark mode */
+.dark-mode .tools-container2 {
+    background-color: #222;
+    color: #ffffff;
+}
+
+/* Add this to your styles.css for dark mode */
+.dark-mode .terminal {
+    background-color: #333;
+}
+
+.dark-mode #logTerminal {
+    background-color: #333;
+}
+
+/* ... (your existing styles) ... */
+
+/* Add this to your styles.css for sliding switch */
+.dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+}
+.dark-mode .info-dialog {
+	background-color: purple;
+	border: 1px solid #CBC3E3;
+}
+.decreasing-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.decreasing-options label,
+.decreasing-options select {
+    margin-bottom: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+
+.input-container {
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+.info-icon {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+}
+
+.info-dialog {
+	display: none;
+	position: absolute;
+	background-color: #CBC3E3;
+	padding: 10px;
+	border: 1px solid purple;
+	border-radius: 4px;
+	z-index: 1;
+	min-width: 200px;
+}
+
+.arrow {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	z-index: 2;
+	border-color:purple;
+
+}
+
+.arrow-up {
+	border-width: 0 10px 10px 10px;
+	border-color: transparent transparent #f9f9f9 transparent;
+	top: -10px;
+	left: calc(50% - 10px);
+		color: purple;
+}
