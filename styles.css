@@ -4,10 +4,10 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f8f9fa; /* Lighter background color */
-    font-family: 'Arial', sans-serif; /* Choose a clean font */
+    background-color: #f8f9fa; 
+    font-family: 'Arial', sans-serif; 
 }
-/* ... (your existing styles) ... */
+
 
 .header {
     position: fixed;
@@ -15,25 +15,25 @@ body {
     left: 0;
     width: 100%;
     display: flex;
-    justify-content: center; /* Center the items horizontally */
+    justify-content: center;
     align-items: center;
     padding: 10px;
     background-color: #333;
     color: #fff;
-    z-index: 3; /* Ensure header is above other elements */
+    z-index: 3;
 }
 
 .site-name {
     font-size: 24px;
     font-weight: bold;
-    margin-right: auto; /* Pushes the site name to the center by taking all available space */
+    margin-right: auto; 
 }
 
 .menu-icon {
 	
     cursor: pointer;
     flex-direction: column;
-    margin-right: auto; /* Pushes the menu icon to the left by taking all available space */
+    margin-right: auto;
 }
 
 .menu-icon .line {
@@ -47,7 +47,7 @@ body {
 .drawer {
     position: fixed;
     top: 0;
-    left: -300px; /* Start off-screen to the left */
+    left: -300px;
     height: 100%;
     width: 300px;
     background-color: #333;
@@ -55,14 +55,14 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     transition: left 0.3s ease-in-out;
     z-index: 2;
-    overflow-y: auto; /* Add vertical scroll */
+    overflow-y: auto;
 }
 
 .drawer-content {
 	position: relative;
 	 display: flex;
     flex-direction: column;
-    color: #0; /* Change text color to white for better visibility */
+    color: #0;
 }
 
 .container {
@@ -98,7 +98,7 @@ body {
     font-weight: bold;
     font-size: 18px;
     color: #fff;
-    background-color: #007bff; /* Blue background for process ID */
+    background-color: #007bff;
 }
 
 .lower {
@@ -106,19 +106,20 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+	font-weight: bold;
     font-size: 14px;
     color: #555;
     border-top: 1px solid #ccc;
 }
 
 .cube.highlighted {
-    background-color: yellow; /* Change the background color to yellow when highlighted */
-    box-shadow: 0 0 5px rgba(255, 255, 0, 0.7); /* Add a box-shadow effect for highlighting */
+    background-color: yellow;
+    box-shadow: 0 0 5px rgba(255, 255, 0, 0.7); 
 }
 .tools-container {
     position: absolute;
     left: 20px;
-    top: 30px; /* Adjusted top value to include the height of the header */
+    top: 30px; 
     background-color: #f8f9fa;
     padding: 10px;
     border: 1px solid #ccc;
@@ -130,7 +131,7 @@ body {
 .tools-container2 {
     position: absolute;
     left: 20px;
-    top: 800px; /* Adjust the top value to create space between the two menus */
+    top: 850px;
     background-color: #f8f9fa;
     padding: 10px;
     border: 1px solid #ccc;
@@ -160,15 +161,13 @@ body {
     margin-top: 10px;
     font-weight: bold;
 }
-
-
 .terminal {
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
-    max-width: 800px; /* Limit the terminal width */
+    max-width: 800px;
     height: 150px;
     background-color: #f8f9fa;
     padding: 10px;
@@ -177,13 +176,14 @@ body {
     font-family: 'Courier New', monospace;
     border-radius: 8px;
 }
+
 #logTerminal {
     font-family: 'Courier New', monospace;
     border: 1px solid #ccc;
     background-color: #f8f8f8;
     overflow-y: scroll;	
-	height: 150px; /* Set the fixed height */
-	position: fixed;
+    height: 150px;
+    position: fixed;
     bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
@@ -192,15 +192,50 @@ body {
     box-sizing: border-box;
     color: white;
 }
+
 .terminal pre {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
-/* ... (your existing styles) ... */
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #976BC6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #623A90;
+}
+
+button#analysisButton {
+    padding: 10px;
+    background: linear-gradient(to right, #ff9a8b, #ff6b6b);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button#analysisButton:hover {
+    background: linear-gradient(to right, #ff6b6b, #ff9a8b);
+}
+
 .switch-word{
 	color: #333;
 }
-/* Add this to your styles.css for dark mode */
+
 .dark-mode {
     background-color: #121212;
     color: #ffffff;
@@ -208,24 +243,22 @@ body {
 .dark-mode .switch-word {
 	color: white;
 }
-/* Add this to your styles.css for dark mode */
+
 .dark-mode .queue {
     background-color: #333;
     border-color: #555;
 }
 
-/* Add this to your styles.css for dark mode */
 .dark-mode .tools-container {
     background-color: #222;
     color: #ffffff;
 }
-/* Add this to your styles.css for dark mode */
+
 .dark-mode .tools-container2 {
     background-color: #222;
     color: #ffffff;
 }
 
-/* Add this to your styles.css for dark mode */
 .dark-mode .terminal {
     background-color: #333;
 }
@@ -234,18 +267,17 @@ body {
     background-color: #333;
 }
 
-/* ... (your existing styles) ... */
-
-/* Add this to your styles.css for sliding switch */
 .dark-mode-toggle {
     display: flex;
     align-items: center;
     color: #ffffff;
 }
+
 .dark-mode .info-dialog {
 	background-color: purple;
 	border: 1px solid #CBC3E3;
 }
+
 .decreasing-options {
     display: flex;
     flex-direction: column;
@@ -353,3 +385,4 @@ input:checked + .slider:before {
 	left: calc(50% - 10px);
 		color: purple;
 }
+

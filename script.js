@@ -225,8 +225,6 @@ function adjustQueueSpacing(queueId) {
     }
 }
 
-
-
 function cubeClickHandler(event) {
     const cube = event.currentTarget;
     const cubeAttributes = getCubeAttributes(cube);
@@ -274,6 +272,7 @@ function createCube(weight, index, color) {
 
     return cube;
 }
+
 
 function randomUpgradeDowngrade() {
     // Get references to the queues
@@ -328,6 +327,7 @@ function addToQueue(cubeAttributes, queue) {
     }
 }
 
+
 const q1SizeInput = document.getElementById("q1Size");
 const q2SizeInput = document.getElementById("q2Size");
 const q3SizeInput = document.getElementById("q3Size");
@@ -335,6 +335,14 @@ const runButton = document.getElementById("runButton");
 const stopButton = document.getElementById("stopButton");
 const speedRange = document.getElementById("speedRange");
 const cycleCounter = document.getElementById("cycleCounter");
+
+const queueSelector1 = document.getElementById("queueSelector1").value;
+const queueSelector2 = document.getElementById("queueSelector2").value;
+const queueSelector3 = document.getElementById("queueSelector3").value;
+
+const QWPC1 = document.getElementById("QWPC1");
+const QWPC2 = document.getElementById("QWPC2");
+const QWPC3 = document.getElementById("QWPC3");
 
 let insertInterval;
 let cycleCount = 0;
@@ -520,9 +528,6 @@ runButton.addEventListener("click", () => {
 
 });
 
-
-
-
 function decreaseWeightFromToolMenu() {
     var processIdInput = document.getElementById("processId");
     var givenWeightInput = document.getElementById("givenWeight");
@@ -582,6 +587,7 @@ function downloadLogs() {
     // Remove the link from the terminal container
     document.getElementById("terminalContainer").removeChild(link);
 }
+
 function toggleDarkMode() {
     const body = document.body;
     const darkModeToggle = document.getElementById("darkModeToggle");
@@ -592,6 +598,7 @@ function toggleDarkMode() {
         body.classList.remove("dark-mode");
     }
 }
+
 function toggleDrawer() {
     const myDrawer = document.getElementById("myDrawer");
 
@@ -599,19 +606,6 @@ function toggleDrawer() {
         myDrawer.style.left = myDrawer.style.left === "0px" ? "-300px" : "0px";
     }
 }
-
-
-function FromToolMenu() {
-        // Get values from the new inputs
-        var queueSelector1 = document.getElementById("queueSelector1").value;
-        var queueSelector2 = document.getElementById("queueSelector2").value;
-        var queueSelector3 = document.getElementById("queueSelector3").value;
-
-        
-}
-
-
-
 
 document.addEventListener('click', function (event) {
             // Close the dialog when clicking anywhere outside the input field or its dialog
@@ -623,27 +617,18 @@ document.addEventListener('click', function (event) {
             }
         });
 
-        function showInfo(infoId) {
-            var infoDialog = document.getElementById(infoId);
-            if (infoDialog.style.display === 'block') {
-                infoDialog.style.display = 'none';
-            } else {
-                // Hide all other dialogs before showing the current one
-                var allDialogs = document.querySelectorAll('.info-dialog');
-                allDialogs.forEach(function (dialog) {
-                    dialog.style.display = 'none';
-                });
+function showInfo(infoId) {
+	var infoDialog = document.getElementById(infoId);
+	if (infoDialog.style.display === 'block') {
+		infoDialog.style.display = 'none';
+	} else {
+		// Hide all other dialogs before showing the current one
+		var allDialogs = document.querySelectorAll('.info-dialog');
+		allDialogs.forEach(function (dialog) {
+			dialog.style.display = 'none';
+		});
 
-                infoDialog.style.display = 'block';
-            }
-        }
+		infoDialog.style.display = 'block';
+	}
+}
 		
-		
-		const queueSelector1 = document.getElementById("queueSelector1").value;
-const queueSelector2 = document.getElementById("queueSelector2").value;
-const queueSelector3 = document.getElementById("queueSelector3").value;
-
-const QWPC1 = document.getElementById("QWPC1");
-const QWPC2 = document.getElementById("QWPC2");
-const QWPC3 = document.getElementById("QWPC3");
-
